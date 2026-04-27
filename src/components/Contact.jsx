@@ -89,10 +89,10 @@ const Contact = () => {
           </div>
 
           <div className="mt-8 pt-6 border-t border-white/10 flex gap-4">
-            <a href="https://github.com/shlokpandey" target="_blank" rel="noreferrer" className="w-10 h-10 rounded border border-white/10 bg-white/5 flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-cyan-400/5 transition-all font-code text-[10px]">
+            <a href="https://github.com/ShlokWritesAlot" target="_blank" rel="noreferrer" className="w-10 h-10 rounded border border-white/10 bg-white/5 flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-cyan-400/5 transition-all font-code text-[10px]">
               GH
             </a>
-            <a href="https://linkedin.com/in/shlokpandey" target="_blank" rel="noreferrer" className="w-10 h-10 rounded border border-white/10 bg-white/5 flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-cyan-400/5 transition-all font-code text-[10px]">
+            <a href="https://www.linkedin.com/in/shlok-pandey-842b08368/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded border border-white/10 bg-white/5 flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-cyan-400/5 transition-all font-code text-[10px]">
               IN
             </a>
             <a href="mailto:shlokpandey8219@gmail.com" className="w-10 h-10 rounded border border-white/10 bg-white/5 flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-cyan-400/5 transition-all font-code text-[10px]">
