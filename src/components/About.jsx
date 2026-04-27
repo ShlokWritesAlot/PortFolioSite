@@ -35,7 +35,7 @@ const About = () => {
   const { state } = useGame();
 
   return (
-    <div className="h-full flex flex-col md:flex-row gap-8 text-white">
+    <div className="h-full flex flex-col md:flex-row gap-6 md:gap-8 text-white">
       {/* Left Column: ID Card */}
       <div className="w-full md:w-1/3 flex flex-col gap-6 shrink-0">
         <div className="bg-white/5 border border-white/10 rounded-lg p-6 relative overflow-hidden group">
@@ -45,10 +45,10 @@ const About = () => {
             <div className="w-20 h-20 rounded bg-white/10 flex items-center justify-center border border-white/20">
               <span className="text-3xl filter grayscale">👤</span>
             </div>
-            <div>
+            <div className="flex-1 min-w-0">
               <div className="text-[10px] text-white/40 font-code tracking-widest mb-1">ID // 99482-B</div>
-              <h2 className="text-xl font-display font-bold"><DecryptText text="SHLOK PANDEY" /></h2>
-              <div className="text-cyan-400 font-code text-xs mt-1 bg-cyan-400/10 inline-block px-2 py-0.5 rounded border border-cyan-400/20">
+              <h2 className="text-lg sm:text-xl font-display font-bold truncate"><DecryptText text="SHLOK PANDEY" /></h2>
+              <div className="text-cyan-400 font-code text-[10px] mt-1 bg-cyan-400/10 inline-block px-2 py-0.5 rounded border border-cyan-400/20">
                 L5_CLEARANCE
               </div>
             </div>
@@ -103,7 +103,7 @@ const About = () => {
             <span className="w-1.5 h-1.5 bg-white/50 rounded-full inline-block"></span> TECH_STACK_MATRIX
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 font-code text-xs">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 font-code text-xs">
             {/* Skill rows */}
             {[
               { name: 'Python', val: 90 },

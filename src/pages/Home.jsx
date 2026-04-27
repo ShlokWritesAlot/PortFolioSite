@@ -67,7 +67,7 @@ const Home = () => {
           <NavigationHUD activeModule={activeModule} setActiveModule={setActiveModule} />
           
           {/* Main Central Viewport */}
-          <main className="absolute inset-0 pt-24 pb-20 px-4 md:px-12 flex justify-center items-center pointer-events-none z-10">
+          <main className="absolute inset-0 pt-20 md:pt-24 pb-6 md:pb-20 px-4 md:px-12 flex justify-center items-center pointer-events-none z-10">
             <AnimatePresence mode="wait">
               {!activeModule && (
                 <motion.div
@@ -80,12 +80,12 @@ const Home = () => {
                 >
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,255,0.05)_0%,transparent_50%)] pointer-events-none"></div>
                   
-                  <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 tracking-[0.2em] mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] animate-[pulse_4s_ease-in-out_infinite] relative">
+                  <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 tracking-[0.2em] mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] animate-[pulse_4s_ease-in-out_infinite] relative text-center">
                     <span className="absolute -inset-1 bg-cyan-400 blur-3xl opacity-10 rounded-full animate-pulse"></span>
                     S.PANDEY
                   </h1>
                   
-                  <div className="font-code text-xs md:text-sm tracking-[0.5em] text-cyan-400/80 border border-cyan-400/30 px-6 py-2 rounded bg-cyan-400/5 shadow-[0_0_10px_rgba(0,229,255,0.1)]">
+                  <div className="font-code text-[10px] md:text-sm tracking-[0.3em] md:tracking-[0.5em] text-cyan-400/80 border border-cyan-400/30 px-4 md:px-6 py-2 rounded bg-cyan-400/5 shadow-[0_0_10px_rgba(0,229,255,0.1)] text-center">
                     CYBERDECK // OS_ONLINE // AWAITING_INPUT
                   </div>
                 </motion.div>
@@ -97,7 +97,7 @@ const Home = () => {
                   animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                   exit={{ opacity: 0, scale: 1.05, filter: 'blur(10px)' }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="w-full max-w-6xl h-full max-h-[80vh] cyber-glass rounded-xl border border-white/10 overflow-hidden flex flex-col pointer-events-auto relative"
+                  className="w-full max-w-6xl h-full max-h-[85vh] md:max-h-[80vh] cyber-glass rounded-xl border border-white/10 overflow-hidden flex flex-col pointer-events-auto relative"
                 >
                   {/* Module Header */}
                   <div className="bg-white/5 border-b border-white/10 px-6 py-3 flex items-center justify-between shrink-0">

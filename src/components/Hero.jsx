@@ -26,7 +26,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={terminalTypeEffect}
-            className="text-4xl md:text-6xl font-display font-bold text-white whitespace-nowrap overflow-hidden border-r-4 border-green-400 pr-2 animate-[blink_1s_infinite]"
+            className="text-2xl sm:text-4xl md:text-6xl font-display font-bold text-white whitespace-nowrap overflow-hidden border-r-4 border-green-400 pr-2 animate-[blink_1s_infinite] text-center"
           >
             SHLOK PANDEY
           </motion.h1>
@@ -40,7 +40,7 @@ const Hero = () => {
         >
           Researcher & Systems Developer.
           <br />
-          <span className="text-gray-400 text-sm mt-2 block">Building secure systems. Breaking bad ones. (get it?)</span>
+          <span className="text-gray-400 text-sm mt-2 block">Building secure systems. Breaking bad ones.</span>
         </motion.p>
 
         <motion.div

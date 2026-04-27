@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { playSound } from '../lib/sounds';
 
 const Contact = () => {

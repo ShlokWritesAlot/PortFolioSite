@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useGame } from '../contexts/GameContext';
 import { achievements } from '../lib/achievements';
 import { playSound } from '../lib/sounds';
@@ -6,6 +7,7 @@ import { playSound } from '../lib/sounds';
 const NavigationHUD = ({ activeModule, setActiveModule }) => {
   const { state } = useGame();
   const [showAchievements, setShowAchievements] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const modules = [
     { id: 'about', label: 'WHOAMI' },
@@ -20,6 +22,7 @@ const NavigationHUD = ({ activeModule, setActiveModule }) => {
   const handleNav = (id) => {
     playSound('type');
     setActiveModule(id);
+    setShowMobileMenu(false);
   };
 
   const unlockedCount = state.unlockedAchievements.length;
@@ -41,7 +44,7 @@ const NavigationHUD = ({ activeModule, setActiveModule }) => {
           </div>
         </div>
 
-        {/* Center: Module Launcher */}
+        {/* Center: Module Launcher (Desktop) */}
         <div className="hidden md:flex gap-2 pointer-events-auto cyber-glass rounded-full px-2 py-1">
           {modules.map(mod => (
             <button
@@ -58,6 +61,20 @@ const NavigationHUD = ({ activeModule, setActiveModule }) => {
           ))}
         </div>
 
+        {/* Mobile: Toggle */}
+        <div className="md:hidden pointer-events-auto">
+          <button 
+            onClick={() => setShowMobileMenu(!showMobileMenu)}
+            className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white"
+          >
+            {showMobileMenu ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            )}
+          </button>
+        </div>
+
         {/* Right: Gamification HUD */}
         <div className="flex flex-col items-end pointer-events-auto cursor-pointer group" onClick={() => setShowAchievements(true)}>
           <div className="text-[10px] font-code text-white/50 group-hover:text-green-400 transition-colors mb-1">
@@ -71,6 +88,41 @@ const NavigationHUD = ({ activeModule, setActiveModule }) => {
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {showMobileMenu && (
+          <motion.div 
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-xl md:hidden flex flex-col p-8"
+          >
+            <div className="flex justify-between items-center mb-12">
+              <div className="text-white font-display font-bold text-xl tracking-widest">MENU</div>
+              <button onClick={() => setShowMobileMenu(false)} className="text-white/50 font-code text-sm">CLOSE [X]</button>
+            </div>
+            
+            <div className="flex flex-col gap-4">
+              {modules.map((mod, i) => (
+                <motion.button
+                  key={mod.id}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  onClick={() => handleNav(mod.id)}
+                  className={`w-full text-left py-4 border-b border-white/5 font-code tracking-[0.2em] transition-all ${
+                    activeModule === mod.id ? 'text-cyan-400 pl-4 border-cyan-400/30' : 'text-white/60'
+                  }`}
+                >
+                  {mod.label}
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Achievement Modal overlay */}
       {showAchievements && (
